@@ -1,17 +1,17 @@
-package com.example.demo;
+package com.example.demo.Service;
 
-import lombok.AllArgsConstructor;
+import com.example.demo.Entity.Image;
+import com.example.demo.Entity.Product;
+import com.example.demo.Repository.ProductRepository;
+import com.example.demo.Repository.UserRepository;
+import com.example.demo.Entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.yaml.snakeyaml.introspector.PropertySubstitute;
 
-import javax.swing.plaf.multi.MultiPanelUI;
 import java.io.IOException;
-import java.nio.channels.MulticastChannel;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 

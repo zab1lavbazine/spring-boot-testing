@@ -1,8 +1,10 @@
-package com.example.demo;
+package com.example.demo.Controller;
 
 
+import com.example.demo.Entity.RolesEnum;
+import com.example.demo.Entity.User;
+import com.example.demo.Service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.support.BeanDefinitionDsl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,7 +1,8 @@
-package com.example.demo;
+package com.example.demo.Controller;
 
 
-import jakarta.annotation.security.PermitAll;
+import com.example.demo.Entity.Product;
+import com.example.demo.Service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

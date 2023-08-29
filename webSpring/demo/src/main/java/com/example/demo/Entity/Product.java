@@ -1,10 +1,8 @@
-package com.example.demo;
+package com.example.demo.Entity;
 
-import com.fasterxml.jackson.databind.ser.std.UUIDSerializer;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
