@@ -3,10 +3,14 @@ package com.example.demo;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.support.BeanDefinitionDsl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j // logging for all actions
@@ -26,7 +30,38 @@ public class UserService {
         return true;
     }
 
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
+    }
+
     public User getUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public void banUser(UUID id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user != null){
+            if (user.isActive()){
+                user.setActive(false);
+                log.info("Ban user with id: {}, email: {}", user.getId(), user.getEmail());
+            } else {
+                user.setActive(true);
+                log.info("Unban user with id: {}, email: {}", user.getId(), user.getEmail());
+            }
+            userRepository.save(user);
+        }
+    }
+
+    public void changeUserRoles(User user, Map<String, String> form) {
+        Set<String> roles = Arrays.stream(RolesEnum.values())
+                .map(RolesEnum::name)
+                .collect(Collectors.toSet());
+        user.getRoles().clear();
+        for(String key : form.keySet()){
+            if (roles.contains(key)){
+                user.getRoles().add(RolesEnum.valueOf(key));
+            }
+        }
+        userRepository.save(user);
     }
 }

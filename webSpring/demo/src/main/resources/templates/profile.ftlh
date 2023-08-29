@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1> PROFILE </h1>
+<a href="/"> main page </a>
 
 <h2> Username : ${user.username}</h2>
 <h2> Email : ${user.email}</h2>
@@ -24,8 +25,7 @@
 </#list>
 
 
+
+
 </body>
-
-
-
 </html>

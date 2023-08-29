@@ -12,6 +12,10 @@
         <input type="submit" value="logout"/>
     </form>
 
+    <#if user.isAdmin() >
+        <a href="/admin"> Admin pannel </a>
+    </#if>
+
 <#else>
     <a href="/login"> Enter </a><hr>
 </#if>
